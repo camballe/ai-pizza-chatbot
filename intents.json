@@ -1,0 +1,224 @@
+{
+  "intents": [
+    {
+      "tag": "greetings",
+      "patterns": [
+        "hello",
+        "hey",
+        "hi",
+        "good morning",
+        "good evening",
+        "good afternoon",
+        "greetings",
+        "what's up?",
+        "how is it going?",
+        "how are you?",
+        "howdy",
+        "yo",
+        "good day"
+      ],
+      "responses": [
+        "Hello!",
+        "Hi there, how can I help?",
+        "Hey!",
+        "What can I do for you?",
+        "Hi!",
+        "Hello, how can I assist you?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "bye",
+        "goodbye",
+        "see you later",
+        "take care",
+        "catch you later",
+        "see you soon",
+        "peace out"
+      ],
+      "responses": [
+        "Goodbye! Have a great day!",
+        "See you soon!",
+        "Take care!",
+        "Bye! Looking forward to helping you again."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": [
+        "thank you",
+        "thanks",
+        "thanks a lot",
+        "thanks so much",
+        "thank you very much",
+        "I appreciate it",
+        "cheers"
+      ],
+      "responses": [
+        "You're welcome!",
+        "Happy to help!",
+        "No problem!",
+        "Anytime!",
+        "Glad I could help!"
+      ]
+    },
+    {
+      "tag": "order_pizza",
+      "patterns": [
+        "I want to order a pizza",
+        "Can I order a pizza?",
+        "I'd like to order pizza",
+        "pizza order",
+        "I'd like some pizza",
+        "order pizza now",
+        "Can you take my pizza order?"
+      ],
+      "responses": [
+        "Sure! What type of pizza would you like?",
+        "I'd be happy to take your pizza order. What kind of pizza do you want?",
+        "Great! Let's start your pizza order. Which pizza would you like?"
+      ]
+    },
+    {
+      "tag": "pizza_type",
+      "patterns": [
+        "What types of pizza do you have?",
+        "What are my options for pizza?",
+        "Do you have pepperoni pizza?",
+        "Can I get a veggie pizza?",
+        "What kinds of pizza are available?"
+      ],
+      "responses": [
+        "We have Margherita, Pepperoni, Veggie Supreme, BBQ Chicken, and Hawaiian. Which one would you like?",
+        "Our options include Pepperoni, Margherita, BBQ Chicken, Veggie, and Hawaiian."
+      ]
+    },
+    {
+      "tag": "size",
+      "patterns": [
+        "What sizes are available?",
+        "Do you have small pizza?",
+        "Can I get a large pizza?",
+        "What size options do you have?",
+        "I'd like a medium pizza"
+      ],
+      "responses": [
+        "We have Small, Medium, and Large sizes. Which one would you prefer?",
+        "Our pizzas come in Small, Medium, and Large. Please let me know your preference!"
+      ]
+    },
+    {
+      "tag": "toppings",
+      "patterns": [
+        "What toppings do you have?",
+        "Can I add extra toppings?",
+        "Do you have mushrooms as a topping?",
+        "What are my topping options?"
+      ],
+      "responses": [
+        "You can choose from mushrooms, olives, jalapeños, extra cheese, onions, or bell peppers.",
+        "Our toppings include mushrooms, olives, jalapeños, onions, extra cheese, and bell peppers. Feel free to add as many as you'd like!"
+      ]
+    },
+    {
+      "tag": "delivery",
+      "patterns": [
+        "Can I get it delivered?",
+        "Do you offer delivery?",
+        "I'd like it delivered",
+        "How does delivery work?",
+        "Can I get home delivery?"
+      ],
+      "responses": [
+        "Yes, we offer delivery! Please provide your address.",
+        "We can deliver to your location. Could you share your address?",
+        "Delivery is available. Let me know your delivery address."
+      ]
+    },
+    {
+      "tag": "pickup",
+      "patterns": [
+        "Can I pick it up?",
+        "Do you allow pickup?",
+        "I'd like to pick up my pizza",
+        "How does pickup work?",
+        "Do you have a pickup option?"
+      ],
+      "responses": [
+        "Yes, you can pick it up! Please let us know the time you'd like to collect your order.",
+        "Pickup is available. What time would you like to come by?"
+      ]
+    },
+    {
+      "tag": "price",
+      "patterns": [
+        "How much does it cost?",
+        "What's the price of a pizza?",
+        "What are your prices?",
+        "Can you tell me the cost of a large pizza?",
+        "Is there a delivery fee?"
+      ],
+      "responses": [
+        "Our prices depend on the size and type of pizza. Could you tell me your choice?",
+        "The price varies by pizza type and size. For example, a Large Margherita costs $12."
+      ]
+    },
+    {
+      "tag": "order_status",
+      "patterns": [
+        "Where is my order?",
+        "What's the status of my order?",
+        "How long will it take?",
+        "When will my pizza arrive?",
+        "Order tracking"
+      ],
+      "responses": [
+        "Let me check on that for you. Can you provide your order ID?",
+        "I'll look up your order status. May I have your order ID?"
+      ]
+    },
+    {
+      "tag": "payment",
+      "patterns": [
+        "How do I pay?",
+        "What payment methods do you accept?",
+        "Can I pay with cash?",
+        "Do you accept credit cards?",
+        "How can I pay for my order?"
+      ],
+      "responses": [
+        "We accept cash, credit cards, and mobile payments. How would you like to pay?",
+        "You can pay via cash, credit card, or mobile payment. Let me know your preference."
+      ]
+    },
+    {
+      "tag": "special_offers",
+      "patterns": [
+        "Do you have any discounts?",
+        "Any special offers?",
+        "Are there any deals right now?",
+        "What are your current promotions?"
+      ],
+      "responses": [
+        "Yes, we have a 20% discount on all Large pizzas today!",
+        "Our current deal is Buy One Get One Free on Medium pizzas."
+      ]
+    },
+    {
+      "tag": "fallback",
+      "patterns": [
+        "I don't understand",
+        "Can you say that again?",
+        "What do you mean?",
+        "I didn't get that",
+        "Could you clarify?"
+      ],
+      "responses": [
+        "I'm sorry, I didn't quite get that. Could you rephrase?",
+        "I didn't understand that. Can you ask differently?",
+        "Apologies, could you say that again?"
+      ]
+    }
+  ]
+}
