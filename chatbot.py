@@ -54,7 +54,7 @@ def get_response(intents_list, intents_json):
     return result
 
 
-print("Go! Bot is running!")
+print("Pizza chatbot is running! Go ahead and say something.")
 
 while True:
     message = input("")
