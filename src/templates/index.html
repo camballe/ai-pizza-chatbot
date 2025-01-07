@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <title>Pizza Chatbot</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to the Pizza Ordering Chatbot</h1>
+      <div class="chat-box" id="chat-box"></div>
+      <div class="input-area">
+        <input
+          type="text"
+          id="user-input"
+          placeholder="Type your message here..."
+        />
+        <button id="send-button">Send</button>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+  </body>
+</html>

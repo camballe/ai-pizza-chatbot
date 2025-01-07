@@ -17,7 +17,7 @@ nltk.download("wordnet")
 lemmatizer = WordNetLemmatizer()
 
 # Load the intents file
-with open("intents.json", "r") as file:
+with open("chatbot/intents.json", "r") as file:
     intents = json.load(file)
 
 # Initialize lists
@@ -49,8 +49,8 @@ print(f"Classes: {len(classes)}")
 print(f"Documents: {len(documents)}")
 
 # Save words and classes
-pickle.dump(words, open("words.pkl", "wb"))
-pickle.dump(classes, open("classes.pkl", "wb"))
+pickle.dump(words, open("chatbot/words.pkl", "wb"))
+pickle.dump(classes, open("chatbot/classes.pkl", "wb"))
 
 # Initialize training data
 training = []
@@ -59,7 +59,8 @@ output_empty = [0] * len(classes)
 # Create training data
 for document in documents:
     bag = []
-    word_patterns = [lemmatizer.lemmatize(word.lower()) for word in document[0]]
+    word_patterns = [lemmatizer.lemmatize(
+        word.lower()) for word in document[0]]
 
     # Create bag of words
     for word in words:
@@ -90,11 +91,12 @@ model.add(Dense(len(train_y[0]), activation="softmax"))
 
 # Compile model
 sgd = SGD(learning_rate=0.01, momentum=0.9, nesterov=True)
-model.compile(loss="categorical_crossentropy", optimizer=sgd, metrics=["accuracy"])
+model.compile(loss="categorical_crossentropy",
+              optimizer=sgd, metrics=["accuracy"])
 
 # Train model
 hist = model.fit(train_x, train_y, epochs=200, batch_size=5, verbose=1)
 
 # Save model
-model.save("chatbot_model.h5", hist)
-print("Model training completed and saved to chatbot_model.h5")
+model.save("chatbot/chatbot_model.h5")
+print("Model training completed and saved to chatbot/chatbot_model.h5")
