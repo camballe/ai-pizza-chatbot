@@ -1,69 +1,75 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 20px;
-  background-color: #f5f5f5;
+  background-color: #f5e5d3;
+  background-image: url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23d4a76a" fill-opacity="0.4" fill-rule="evenodd"%3E%3Ccircle cx="3" cy="3" r="3"/%3E%3Ccircle cx="13" cy="13" r="3"/%3E%3C/g%3E%3C/svg%3E');
 }
 
 .container {
   max-width: 600px;
   margin: 0 auto;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: #fff9e6;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  border: 2px solid #e67e22;
 }
 
 h1 {
   text-align: center;
-  color: #333;
+  color: #d35400;
   margin-bottom: 20px;
+  font-family: 'Pacifico', cursive;
+  font-size: 2.5em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .chat-box {
   height: 400px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 2px solid #e67e22;
+  border-radius: 10px;
   padding: 10px;
   overflow-y: auto;
   margin-bottom: 20px;
+  background-color: #fffaf0;
 }
 
 .bot-message,
 .user-message {
   position: relative;
   margin: 10px 0;
-  padding: 8px 12px;
-  border-radius: 15px;
+  padding: 10px 15px;
+  border-radius: 20px;
   max-width: 70%;
   width: fit-content;
   word-wrap: break-word;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .user-message {
-  background-color: #007bff;
+  background-color: #e67e22;
   color: white;
   margin-left: auto;
-  border-top-right-radius: 2px;
+  border-top-right-radius: 5px;
 }
 
 .bot-message {
-  background-color: #e9ecef;
-  color: #333;
+  background-color: #f39c12;
+  color: #fff;
   margin-right: auto;
-  border-top-left-radius: 2px;
+  border-top-left-radius: 5px;
 }
 
-/* Message protrusions */
 .user-message:not(.grouped):before {
   content: "";
   position: absolute;
   top: 0;
-  right: -8px;
+  right: -10px;
   width: 0;
   height: 0;
-  border: 8px solid transparent;
-  border-left-color: #007bff;
+  border: 10px solid transparent;
+  border-left-color: #e67e22;
   border-right: 0;
   border-top: 0;
   margin-right: 0;
@@ -73,23 +79,22 @@ h1 {
   content: "";
   position: absolute;
   top: 0;
-  left: -8px;
+  left: -10px;
   width: 0;
   height: 0;
-  border: 8px solid transparent;
-  border-right-color: #e9ecef;
+  border: 10px solid transparent;
+  border-right-color: #f39c12;
   border-left: 0;
   border-top: 0;
   margin-left: 0;
 }
 
-/* Grouped messages shouldn't have the pointed corners */
 .user-message.grouped {
-  border-top-right-radius: 15px;
+  border-top-right-radius: 20px;
 }
 
 .bot-message.grouped {
-  border-top-left-radius: 15px;
+  border-top-left-radius: 20px;
 }
 
 .input-area {
@@ -99,43 +104,51 @@ h1 {
 
 #user-input {
   flex: 1;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 12px;
+  border: 2px solid #e67e22;
+  border-radius: 25px;
   font-size: 16px;
+  background-color: #fff9e6;
+  color: #d35400;
+}
+
+#user-input::placeholder {
+  color: #e67e22;
+  opacity: 0.7;
 }
 
 #send-button {
-  padding: 8px 20px;
-  background-color: #28a745;
+  padding: 12px 25px;
+  background-color: #d35400;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 25px;
   cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 #send-button:hover {
-  background-color: #218838;
+  background-color: #e67e22;
 }
 
-/* Loading animation */
 .loading {
   display: flex;
   align-items: center;
   margin: 10px 0;
   margin-right: auto;
-  background-color: #e9ecef;
-  padding: 8px 12px;
-  border-radius: 15px;
+  background-color: #f39c12;
+  padding: 10px 15px;
+  border-radius: 20px;
   width: fit-content;
 }
 
 .loading span {
-  width: 6px;
-  height: 6px;
-  background-color: #666;
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
   border-radius: 50%;
-  margin: 0 2px;
+  margin: 0 3px;
   animation: bounce 1.4s infinite ease-in-out;
 }
 
@@ -147,9 +160,7 @@ h1 {
 }
 
 @keyframes bounce {
-  0%,
-  80%,
-  100% {
+  0%, 80%, 100% {
     transform: scale(0);
   }
   40% {

@@ -54,8 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((response) => response.json())
         .then((data) => {
           // Remove loading indicator
+          console.log(data)
           loadingIndicator.remove();
-          appendMessage(data, false);
+          appendMessage(data.response, false);
         })
         .catch((error) => {
           console.error("Error:", error);

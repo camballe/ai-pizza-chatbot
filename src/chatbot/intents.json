@@ -1,210 +1,267 @@
 {
   "intents": [
     {
-      "tag": "greetings",
+      "tag": "greeting",
       "patterns": [
-        "hello", "hey", "hi", "good morning", "good evening", "good afternoon", 
-        "greetings", "what's up", "how are you", "how's it going", "howdy", 
-        "yo", "hi there", "is anyone there?", "good day", "sup", "what's good"
+        "Hello",
+        "Hi",
+        "Hey",
+        "Good morning",
+        "Good afternoon",
+        "Hi there",
+        "Hello there",
+        "Hey there"
       ],
       "responses": [
-        "Hello! How can I assist you today?", 
-        "Hi there! Welcome to our pizza service. What can I do for you?", 
-        "Hey! Ready to order some pizza?", 
-        "Hi! How can I help you?", 
-        "Hello! How can I make your day better?"
-      ]
-    },
-    {
-      "tag": "goodbye",
-      "patterns": [
-        "bye", "goodbye", "see you later", "take care", "catch you later", 
-        "talk to you later", "peace out", "I’m done", "that’s all", "bye for now"
+        "Hi! Would you like to order some pizza?",
+        "Hello! Can I help you order a pizza today?",
+        "Hey there! Ready to order some delicious pizza?"
       ],
-      "responses": [
-        "Goodbye! Have a great day!", 
-        "See you soon! Looking forward to serving you again.", 
-        "Take care and enjoy your pizza!", 
-        "Bye! Let us know when you’re craving pizza again!"
-      ]
-    },
-    {
-      "tag": "thanks",
-      "patterns": [
-        "thank you", "thanks", "thanks a lot", "thank you so much", "thanks a ton", 
-        "I appreciate it", "many thanks", "thank you very much", "cheers", "thanks for the help"
-      ],
-      "responses": [
-        "You're welcome!", 
-        "Glad I could help!", 
-        "No problem at all!", 
-        "Anytime! Let me know if you need anything else.", 
-        "Happy to assist!"
-      ]
-    },
-    {
-      "tag": "apology",
-      "patterns": [
-        "sorry", "I’m sorry", "my apologies", "forgive me", "oops", 
-        "didn’t mean to", "pardon me", "excuse me", "I apologize"
-      ],
-      "responses": [
-        "No worries! How can I help?", 
-        "It's okay! Let me know how I can assist you.", 
-        "No problem! What can I do for you?"
-      ]
+      "context_set": "expecting_order"
     },
     {
       "tag": "order_pizza",
       "patterns": [
-        "I want to order a pizza", "Can I order a pizza?", "I'd like to order pizza", 
-        "pizza order", "I'd like some pizza", "order pizza now", 
-        "Can you take my pizza order?", "I’m craving pizza", "I need pizza", 
-        "Can I place an order?", "Let’s order pizza"
+        "I want to order a pizza",
+        "Can I order a pizza?",
+        "I'd like to order pizza",
+        "pizza order",
+        "I'd like some pizza",
+        "order pizza now",
+        "Can you take my pizza order?",
+        "I'm craving pizza",
+        "I need pizza",
+        "Can I place an order?",
+        "Let's order pizza",
+        "yes",
+        "sure",
+        "yeah"
       ],
       "responses": [
-        "Of course! What type of pizza would you like to order?", 
-        "Great! Let’s start your order. What kind of pizza are you in the mood for?", 
-        "Sure thing! Tell me the type of pizza you’d like.", 
-        "Awesome! What pizza can I get started for you?"
-      ]
+        "Great! Here are our options: Margherita, Pepperoni, Veggie Supreme, BBQ Chicken, Hawaiian, Meat Lovers, and Four Cheese. Which one would you like?",
+        "Awesome! We have Margherita, Pepperoni, BBQ Chicken, Veggie Supreme, Hawaiian, and Four Cheese. What's your pick?"
+      ],
+      "context_set": "selecting_pizza",
+      "requires_context": "expecting_order"
     },
     {
-      "tag": "pizza_type",
+      "tag": "pizza_selection",
       "patterns": [
-        "What types of pizza do you have?", "What are my options for pizza?", 
-        "Do you have pepperoni pizza?", "Can I get a veggie pizza?", 
-        "What kinds of pizza are available?", "Tell me the pizza options", 
-        "What’s on the menu?", "What pizzas can I choose from?"
+        "I would like Barbecue",
+        "BBQ",
+        "BBQ Chicken",
+        "Barbecue Chicken",
+        "Margherita",
+        "Pepperoni",
+        "Veggie Supreme",
+        "Hawaiian",
+        "Meat Lovers",
+        "Four Cheese",
+        "Cheese"
       ],
       "responses": [
-        "We have Margherita, Pepperoni, Veggie Supreme, BBQ Chicken, Hawaiian, Meat Lovers, and Four Cheese. Which one would you like?", 
-        "Our menu includes Margherita, Pepperoni, BBQ Chicken, Veggie Supreme, Hawaiian, and Four Cheese. What’s your pick?"
-      ]
+        "Excellent choice! What size would you like? We have Small (10\"), Medium (12\"), or Large (14\")",
+        "Great pick! Would you like that in Small (10\"), Medium (12\"), or Large (14\")?"
+      ],
+      "context_set": "selecting_size",
+      "requires_context": "selecting_pizza"
     },
     {
-      "tag": "custom_pizza",
+      "tag": "pizza_size",
       "patterns": [
-        "Can I create my own pizza?", "Can I customize a pizza?", 
-        "Do you offer custom pizzas?", "I want a pizza with specific toppings", 
-        "Can I choose my own toppings?"
+        "Small",
+        "Medium",
+        "Large",
+        "10 inch",
+        "12 inch",
+        "14 inch",
+        "10\"",
+        "12\"",
+        "14\""
       ],
       "responses": [
-        "Absolutely! Start by choosing your base, size, and toppings.", 
-        "Yes, you can! Let me know what base and toppings you’d like to add."
-      ]
+        "Perfect! What toppings would you like to add? We have cheese, mushrooms, olives, onions, peppers, sausage, tomatoes, spinach, bacon, pineapple, ham, and jalapeños.",
+        "Got it! Please tell me what toppings you'd like to add. Available options are: cheese, mushrooms, olives, onions, peppers, sausage, tomatoes, spinach, bacon, pineapple, ham, and jalapeños."
+      ],
+      "context_set": "selecting_toppings",
+      "requires_context": "selecting_size"
     },
     {
-      "tag": "size",
+      "tag": "add_toppings",
       "patterns": [
-        "What sizes are available?", "Do you have small pizza?", 
-        "Can I get a large pizza?", "What size options do you have?", 
-        "I'd like a medium pizza", "What pizza sizes do you offer?", 
-        "Tell me the size options"
+        "Cheese and mushrooms",
+        "I want olives and onions",
+        "Add bacon and jalapeños",
+        "Pineapple and ham",
+        "Add peppers",
+        "Spinach on my pizza",
+        "Add these toppings"
       ],
       "responses": [
-        "We have Small (10”), Medium (12”), and Large (16”) sizes. Which one would you like?", 
-        "Our sizes include Small, Medium, and Large. What’s your choice?"
-      ]
+        "Got it! I've added those toppings to your order. Would you like to add more?",
+        "Your extra toppings have been added. Let me know if you'd like to add anything else!",
+        "Done! I've updated your order with the requested toppings. Do you want to add more?"
+      ],
+      "context_set": "confirm_order",
+      "requires_context": "selecting_toppings"
     },
     {
-      "tag": "toppings",
+      "tag": "confirm_order",
       "patterns": [
-        "What toppings do you have?", "Can I add extra toppings?", 
-        "Do you have mushrooms as a topping?", "What are my topping options?", 
-        "Tell me about the toppings", "Can I get extra cheese?", 
-        "What toppings can I choose from?"
+        "That's all",
+        "No thanks",
+        "No additional toppings",
+        "That's it",
+        "Yes, that's everything",
+        "Complete my order",
+        "Finish order"
       ],
       "responses": [
-        "Our toppings include mushrooms, olives, jalapeños, extra cheese, onions, bell peppers, pineapple, and sausage. Let me know your favorites!", 
-        "You can choose from mushrooms, olives, jalapeños, extra cheese, onions, bell peppers, pineapple, sausage, and bacon."
-      ]
+        "Great! I'll finalize your order now. Your pizza will be ready in about 30 minutes.",
+        "Perfect! Your order is confirmed and will be ready in approximately 30 minutes."
+      ],
+      "context_clear": true,
+      "requires_context": "confirm_order"
     },
     {
-      "tag": "delivery",
+      "tag": "greetings",
       "patterns": [
-        "Can I get it delivered?", "Do you offer delivery?", 
-        "I'd like it delivered", "How does delivery work?", 
-        "Can I get home delivery?", "Will you deliver to my address?", 
-        "Is delivery an option?"
+        "hello",
+        "hey",
+        "hi",
+        "good morning",
+        "good evening",
+        "good afternoon",
+        "greetings",
+        "what's up",
+        "how are you",
+        "how's it going",
+        "howdy",
+        "yo",
+        "hi there",
+        "is anyone there?",
+        "good day",
+        "sup",
+        "what's good"
       ],
       "responses": [
-        "Yes, we offer delivery! Please provide your address and delivery instructions.", 
-        "Delivery is available. Could you share your address and phone number?"
-      ]
+        "Hello! How can I assist you today?",
+        "Hi there! Welcome to our pizza service. What can I do for you?",
+        "Hey! Ready to order some pizza?",
+        "Hi! How can I help you?",
+        "Hello! How can I make your day better?"
+      ],
+      "context_set": "general_help"
     },
     {
-      "tag": "pickup",
+      "tag": "goodbye",
       "patterns": [
-        "Can I pick it up?", "Do you allow pickup?", "I'd like to pick up my pizza", 
-        "How does pickup work?", "Do you have a pickup option?", 
-        "Is pickup available?"
+        "bye",
+        "goodbye",
+        "see you later",
+        "take care",
+        "catch you later",
+        "talk to you later",
+        "peace out",
+        "I’m done",
+        "that’s all",
+        "bye for now"
       ],
       "responses": [
-        "Yes, you can pick it up! Let us know the time you’d like to collect your order.", 
-        "Pickup is available. What time would you like to come by?"
-      ]
+        "Goodbye! Have a great day!",
+        "See you soon! Looking forward to serving you again.",
+        "Take care and enjoy your pizza!",
+        "Bye! Let us know when you’re craving pizza again!"
+      ],
+      "context_clear": true
     },
     {
-      "tag": "price",
+      "tag": "thanks",
       "patterns": [
-        "How much does it cost?", "What's the price of a pizza?", 
-        "What are your prices?", "Can you tell me the cost of a large pizza?", 
-        "Is there a delivery fee?", "How much is a Margherita pizza?"
+        "thank you",
+        "thanks",
+        "thanks a lot",
+        "thank you so much",
+        "thanks a ton",
+        "I appreciate it",
+        "many thanks",
+        "thank you very much",
+        "cheers",
+        "thanks for the help"
       ],
       "responses": [
-        "Our prices vary based on size and type. A Small pizza starts at $8, Medium at $12, and Large at $16. What size and type are you thinking?", 
-        "Prices depend on the size and toppings. A Large Pepperoni pizza, for example, costs $18. Let me know your choice!"
-      ]
+        "You're welcome!",
+        "Glad I could help!",
+        "No problem at all!",
+        "Anytime! Let me know if you need anything else.",
+        "Happy to assist!"
+      ],
+      "context_clear": true
     },
     {
-      "tag": "order_status",
+      "tag": "cancel_order",
       "patterns": [
-        "Where is my order?", "What's the status of my order?", 
-        "How long will it take?", "When will my pizza arrive?", 
-        "Order tracking", "Is my pizza ready yet?"
+        "I want to cancel my order",
+        "Cancel the order",
+        "Can I cancel my order?",
+        "Stop my order",
+        "Cancel it",
+        "Don’t process my order",
+        "I changed my mind",
+        "Can you cancel the order?",
+        "Cancel this"
       ],
       "responses": [
-        "Let me check on that for you. Could you provide your order ID?", 
-        "I'll look up your order status. May I have your order ID or phone number?"
-      ]
+        "Your order has been canceled. Let us know if you change your mind and want to order again!",
+        "No problem! Your order has been canceled. Let us know if we can help with anything else.",
+        "Got it! Your order is canceled. We're here if you need anything else."
+      ],
+      "context_clear": true
     },
     {
-      "tag": "payment",
+      "tag": "help",
       "patterns": [
-        "How do I pay?", "What payment methods do you accept?", 
-        "Can I pay with cash?", "Do you accept credit cards?", 
-        "How can I pay for my order?", "Is online payment available?"
+        "help",
+        "help me",
+        "help me get pizza",
+        "can you help?",
+        "I need assistance",
+        "I need help",
+        "can you assist me?",
+        "support",
+        "what can you do?",
+        "what do you offer?",
+        "how can you help?",
+        "what services do you provide?"
       ],
       "responses": [
-        "We accept cash, credit cards, and mobile payments. How would you like to pay?", 
-        "You can pay via cash, card, or mobile payment apps. Let me know what works best for you."
-      ]
+        "I can help you order pizza, provide information about our menu, and assist with any questions you have. How can I assist you today?",
+        "I'm here to help you with pizza orders, menu details, and any other questions you may have. What do you need assistance with?",
+        "I can assist you with pizza orders, menu options, and general inquiries. Feel free to ask me anything!"
+      ],
+      "context_set": "general_help"
     },
     {
-      "tag": "special_offers",
+      "tag": "menu",
       "patterns": [
-        "Do you have any discounts?", "Any special offers?", 
-        "Are there any deals right now?", "What are your current promotions?", 
-        "Do you have coupons?", "Any deals on large pizzas?"
+        "What pizzas do you have?",
+        "Can you list your pizzas?",
+        "What are your pizza options?",
+        "Tell me about your pizzas",
+        "What's on the menu?",
+        "What do you offer?",
+        "What are the choices?",
+        "What's available?",
+        "What kind of pizzas do you have?",
+        "What toppings do you offer?",
+        "What are the pizza flavors?"
       ],
       "responses": [
-        "Yes, today we have a 20% discount on Large pizzas!", 
-        "Our current deal is Buy One Get One Free on Medium pizzas. Would you like to take advantage of that?"
-      ]
-    },
-    {
-      "tag": "fallback",
-      "patterns": [
-        "I don't understand", "Can you say that again?", "What do you mean?", 
-        "I didn’t get that", "Could you clarify?", "What was that?", 
-        "Can you explain?"
+        "We offer Margherita, Pepperoni, Veggie Supreme, BBQ Chicken, Hawaiian, Meat Lovers, and Four Cheese pizzas. Let me know if you'd like more details on any of them!",
+        "Our menu includes Margherita, Pepperoni, Veggie Supreme, BBQ Chicken, Hawaiian, Meat Lovers, and Four Cheese pizzas. Feel free to ask about any specific pizza!",
+        "We have Margherita, Pepperoni, Veggie Supreme, BBQ Chicken, Hawaiian, Meat Lovers, and Four Cheese pizzas. Is there a particular pizza you're interested in?"
       ],
-      "responses": [
-        "I’m sorry, I didn’t quite get that. Could you rephrase?", 
-        "I didn’t understand that. Can you ask differently?", 
-        "Apologies, could you clarify your request?"
-      ]
+      "context_set": "menu_inquiry"
     }
   ]
 }
