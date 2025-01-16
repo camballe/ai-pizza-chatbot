@@ -1,1 +1,5 @@
 venv/
+chatbot_model.h5
+classes.pkl
+context.pkl
+words.pkl   
